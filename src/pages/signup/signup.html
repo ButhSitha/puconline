@@ -1,42 +1,39 @@
-<ion-header>
-	<ion-navbar>
-		<button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-		<ion-title>Signup</ion-title>
-	</ion-navbar>
-</ion-header>
+<ion-content class="login-wrapper">
+    <div class="logo">
+        <img src="assets/img/appicon.svg" alt="Ionic logo">
+        <h2 class="title">PUC SPEL Online</h2>
+    </div>
+    <form #signupForm="ngForm" novalidate class="login-form">
 
-<ion-content class="login-page">
+        <div class="form-groups">
 
-	<div class="logo">
-		<img src="assets/img/appicon.svg" alt="Ionic Logo">
-	</div>
+            <input type="text" [(ngModel)]="signup.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off" placeholder="User Name" required>
+            <div class="er-message" [hidden]="username.valid || submitted == false">
+                <div> Username is required</div>
+            </div>
+        </div>
 
-	<form #signupForm="ngForm" novalidate>
-		<ion-list no-lines>
-			<ion-item>
-				<ion-label stacked color="primary">Username</ion-label>
-				<ion-input [(ngModel)]="signup.username" name="username" type="text" #username="ngModel" required>
-				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
-				Username is required
-			</p>
 
-			<ion-item>
-				<ion-label stacked color="primary">Password</ion-label>
-				<ion-input [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" required>
-				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
-				Password is required
-			</p>
-		</ion-list>
+        <div class="form-groups">
 
-		<div padding>
-			<button ion-button (click)="onSignup(signupForm)" type="submit" block>Create</button>
-		</div>
-	</form>
+            <input type="text" [(ngModel)]="signup.password" name="password" type="password" #password="ngModel" placeholder="Password" required>
+
+            <div class="er-message" [hidden]="password.valid || submitted == false">
+                <div>Password is required</div>
+            </div>
+        </div>
+
+
+
+        <ion-row>
+            <button ion-button (click)="onSignup(signupForm)" type="submit" class="login-btn">Create</button>
+        </ion-row>
+        <div class="no-span">
+            or
+        </div>
+        <ion-row>
+            <a (click)="onLogin()" class="acc-create-link">already have account</a>
+        </ion-row>
+    </form>
 
 </ion-content>

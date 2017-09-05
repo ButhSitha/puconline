@@ -1,3 +1,4 @@
+import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -18,7 +19,10 @@ export class SignupPage {
   signup: UserOptions = { username: '', password: '' };
   submitted = false;
 
-  constructor(public navCtrl: NavController, public userData: UserData) {}
+  constructor(public navCtrl: NavController, public userData: UserData) { }
+  onLogin() {
+    this.navCtrl.push(LoginPage);
+  }
 
   onSignup(form: NgForm) {
     this.submitted = true;
@@ -28,4 +32,5 @@ export class SignupPage {
       this.navCtrl.push(TabsPage);
     }
   }
+
 }

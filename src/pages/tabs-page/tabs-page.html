@@ -1,6 +1,8 @@
-<ion-tabs [selectedIndex]="mySelectedIndex" name="conference">
-  <ion-tab [root]="tab1Root" tabTitle="Schedule" tabIcon="calendar" tabUrlPath="conference-schedule"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Speakers" tabIcon="contacts"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Map" tabIcon="map"></ion-tab>
-  <ion-tab [root]="tab4Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
+<ion-tabs [selectedIndex]="mySelectedIndex" name="pucspel" class="my-taskbar">
+    <!-- <ion-tab [root]="tab1Root" tabTitle="Schedule" tabIcon="calendar" tabUrlPath="conference-schedule"></ion-tab> -->
+    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Ticket" tabIcon="send"></ion-tab>
+    <ion-tab [root]="tab3Root" tabTitle="Training" tabIcon="school"></ion-tab>
+    <ion-tab [root]="tab4Root" tabTitle="Testing" tabIcon="paper"></ion-tab>
+    <ion-tab [root]="tab5Root" tabTitle="More" tabIcon="more"></ion-tab>
 </ion-tabs>
