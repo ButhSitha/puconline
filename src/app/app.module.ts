@@ -10,27 +10,20 @@ import { DiscoverPage } from './../pages/discover/discover';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { NgModule, ErrorHandler } from '@angular/core';
-
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { IonicStorageModule } from '@ionic/storage';
-
 import { PucspelApp } from './app.component';
-
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
-
 import { SignupPage } from '../pages/signup/signup';
-
 import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SupportPage } from '../pages/support/support';
-
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
+import { RecentTrainingProvider } from '../providers/recent-training/recent-training';
 @NgModule({
   declarations: [
     PucspelApp,
@@ -90,7 +83,8 @@ import { UserData } from '../providers/user-data';
     ConferenceData,
     UserData,
     InAppBrowser,
-    SplashScreen
+    SplashScreen,
+    RecentTrainingProvider
   ]
 })
 export class AppModule { }

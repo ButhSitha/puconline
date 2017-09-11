@@ -4,6 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Platform } from 'ionic-angular';
+import { RecentTrainingProvider } from '../../providers/recent-training/recent-training';
 /**
  * Generated class for the DiscoverPage page.
  *
@@ -24,19 +25,41 @@ export class DiscoverPage {
   public selected = 0;
   public indicator:any;
   public mySlideOptions = {};
-
+  public loading:boolean;
+  public recents:any;
+  public error:any;
   ngAfterViewInit() {
     this.indicator = document.getElementById("indicator");
     if (this.platform.is('windows')) {
       this.indicator.style.opacity = '0';
     }
+    this.initData();
   }
 
   segmentsArray = ['segmentOne', 'segmentTwo'];
   segmentModel: string = this.segmentsArray[0];
-  constructor(public navCtrl: NavController, public navParams: NavParams,public platform: Platform) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public db:RecentTrainingProvider,
+    public platform: Platform) {
     this.platform = platform;
+    
   }
+
+  initData() {
+    let self = this;
+    this.loading = true;
+    this.recents = [];
+    this.db.recent().then(snapshots => {
+      this.recents=snapshots;
+      self.loading = false;
+    }).catch(function (error) {
+      self.error=error;
+      self.loading = false;
+    });;
+  }
+
+
 
   select(index:any) 
   {
