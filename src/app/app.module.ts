@@ -1,3 +1,7 @@
+import { FeedPage } from './../pages/feed/feed';
+import { HeaderPage } from './../pages/header/header';
+import { AllPage } from './../pages/discover/all/all';
+import { CurrentPage } from './../pages/discover/current/current';
 import { TrainingPage } from './../pages/training/training';
 import { TicketPage } from './../pages/ticket/ticket';
 import { TestingPage } from './../pages/testing/testing';
@@ -27,8 +31,6 @@ import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
-
-
 @NgModule({
   declarations: [
     PucspelApp,
@@ -42,7 +44,11 @@ import { UserData } from '../providers/user-data';
     MorePage,
     TestingPage,
     TicketPage,
-    TrainingPage
+    TrainingPage,
+    CurrentPage,
+    AllPage,
+    HeaderPage,
+    FeedPage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +78,12 @@ import { UserData } from '../providers/user-data';
     MorePage,
     TestingPage,
     TicketPage,
-    TrainingPage
+    TrainingPage,
+    CurrentPage,
+    AllPage,
+    HeaderPage,
+    FeedPage
+
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

@@ -196,38 +196,79 @@ textarea {
 // end glb form
 .header {
     .app-navbar {
-        box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+        // box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
         height: 52px;
         .toolbar-background {
             background-color: #3F51B5;
             border: none;
         }
-        .segment-btn {
-            background-color: transparent;
-            border-color: #fff;
-            color: #fff;
-            letter-spacing: .50px;
-            border: 1px solid #fff;
-            height: 28px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            &.segment-activated {
-                background-color: #fafafa;
-                color: #3F51B5;
-            }
-        }
         .toolbar-title {
             color: #fff;
         }
         .user-pro {
-            height: 44px;
-            width: 44px;
+            height: 34px;
+            width: 34px;
             overflow: hidden;
             border-radius: 50%;
             float: right;
             margin-right: 8px;
             cursor: pointer;
+        }
+        .back-button-icon {
+            font-size: 24px;
+            color: #fff;
+        }
+        .back-button-text {
+            color: #fff;
+        }
+    }
+    .segment-btn {
+        border-color: #fff;
+        color: #333;
+        letter-spacing: .50px;
+        background-color: #fff;
+        border: none;
+        border-bottom: 2px solid #fff;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: none;
+        border-radius: 0 !important;
+        &.segment-activated,
+        &.activeSegment {
+            background-color: #fff;
+            color: #3F51B5;
+            font-weight: 600;
+            border-bottom: 2px solid #3F51B5;
+        }
+    }
+    ion-segment {
+        // box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, .3);
+    }
+    .feed {
+        background-color: transparent;
+        display: flex;
+        float: right;
+        align-items: center;
+        height: 34px;
+        margin-right: 16px;
+        position: relative;
+        svg path {
+            fill: #f9f9f9;
+        }
+        .feed-num {
+            position: absolute;
+            color: #fff;
+            font-size: 9px;
+            top: 1px;
+            background-color: red;
+            padding: 2px 3px;
+            border-radius: 2px;
+            right: 2px;
+            outline: none;
+            border: none;
+            box-shadow: none;
         }
     }
 }
@@ -237,12 +278,46 @@ textarea {
 }
 
 .outer-content {
-    background-color: #233342 !important;
-    color: #fff;
+    background-color: #fff !important;
+    color: #333;
 }
 
 .border-top {
     border-top: 1px solid #233342;
+}
+
+.side-list-header-wrapper {
+    .lv-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+        margin-top: 8px;
+        color: #333;
+        font-weight: 500;
+    }
+    .ls-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-transform: initial;
+    }
+    .l-block-show {
+        display: flex;
+        align-items: center;
+        img {
+            width: 34px;
+            height: 34px;
+            margin-right: 8px;
+        }
+        .ls-title {
+            color: #333;
+            font-weight: 500;
+            font-weight: 16px;
+        }
+    }
+    .completed {
+        font-size: 10px;
+        margin-right: 16px;
+    }
 }
 
 .side-lists-wrapper {
@@ -250,16 +325,38 @@ textarea {
     ion-list-header {
         border: none;
     }
+    ion-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+    .ls-item {
+        display: flex;
+        align-items: center;
+        span {
+            font-weight: 500;
+        }
+        .qs-am {
+            margin-left: 8px;
+            font-weight: 500;
+        }
+    }
+    .cmpc {
+        font-size: 12px;
+        font-weight: 500;
+    }
     ion-icon {
-        color: #fff;
+        color: #333;
+        font-size: 16px;
+        margin-right: 8px;
         &.icon-ios-primary {
             color: #3F51B5;
         }
     }
     .item {
-        background-color: #233342;
-        color: #fff;
-        text-transform: uppercase;
+        background-color: #fff;
+        color: #333;
+        // text-transform: uppercase;
         font-size: 14px;
         &:first-child,
         {
@@ -270,12 +367,13 @@ textarea {
         }
     }
     .item-ios-primary {
-        background-color: #17252E;
+        background-color: #fafafa;
         // color: #3F51B5;
     }
     .item-block .item-inner {
         border: none;
         background-image: none !important;
+        padding-right: 16px !important;
     }
 }
 
@@ -283,7 +381,7 @@ textarea {
     padding: 24px 16px;
     display: flex;
     align-items: center;
-    background-color: #17252E;
+    background-color: #fff;
     cursor: pointer;
     .user-pro {
         height: 66px;
@@ -298,6 +396,8 @@ textarea {
 .my-taskbar {
     .tabbar {
         background-color: #fff;
+        box-shadow: 0 0 8px 1px rgba(0, 0, 0, .3);
+        border: none;
         .tab-button {
             border-bottom: 2px solid transparent;
             font-size: 12px;
@@ -308,7 +408,7 @@ textarea {
         }
         .tab-button[aria-selected=true] {
             color: #3F51B5;
-            border-bottom: 2px solid #3F51B5;
+            // border-bottom: 2px solid #3F51B5;
             .tab-button-icon {
                 color: #3F51B5;
             }
@@ -321,14 +421,23 @@ textarea {
 }
 
 .app-content {
-    background-color: #fff;
+    background-color: #fafafa;
     .scroll-content {
         padding: 0 !important;
+    }
+    .cs-swiper-slide {
+        // height: 100%;
+        // overflow-y: auto;
+        .slide-zoom {
+            height: 100%;
+            overflow-y: auto;
+        }
     }
 }
 
 .app-sc-content {
-    height: 100%;
+    // overflow-y: auto;
+    // height: 100vh;
     .app-sc-data {
         height: 100%;
     }
@@ -337,7 +446,6 @@ textarea {
 .app-cart {
     margin: 0;
     height: max-content;
-    min-height: 100%;
     width: 100%;
     background: rgba(255, 255, 255, .5);
     line-height: 1.5;
@@ -498,4 +606,12 @@ textarea {
     &:after {
         left: 1.5%;
     }
+}
+
+.ticket-wrapper {
+    background-color: #fff;
+    margin: 8px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    .ticket-list-item {}
 }

@@ -1,8 +1,14 @@
 <ion-split-pane>
-
-    <!-- logged out menu -->
     <ion-menu id="loggedOutMenu" [content]="content">
+        <page-all></page-all>
+    </ion-menu>
+    <ion-menu id="loggedInMenu" [content]="content">
+        <page-all></page-all>
+    </ion-menu>
+    <!-- logged out menu -->
+    <!-- <ion-menu id="loggedOutMenu" [content]="content">
 
+        <page-all></page-all>
 
         <ion-content class="outer-content">
             <div class="user-pro-blg" menuClose *ngFor="let p of AccountPage">
@@ -10,9 +16,7 @@
                     <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
                 </ion-avatar>
                 <div class="name">en<br/> sophearak</div>
-                <!-- <div class="sitting">
-                    <ion-icon name="cog"></ion-icon>
-                </div> -->
+            
             </div>
             <ion-list class="side-lists-wrapper border-top">
 
@@ -21,7 +25,6 @@
                       {{p.title}}
                     </button>
             </ion-list>
-
             <ion-list class="side-lists-wrapper">
 
                 <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)" [color]="isActive(p)">
@@ -41,16 +44,12 @@
             </ion-list>
         </ion-content>
 
-    </ion-menu>
+    </ion-menu> -->
 
     <!-- logged in menu -->
-    <ion-menu id="loggedInMenu" [content]="content">
+    <!-- <ion-menu id="loggedInMenu" [content]="content">
 
-        <!-- <ion-header>
-            <ion-toolbar>
-                <ion-title>Menu</ion-title>
-            </ion-toolbar>
-        </ion-header> -->
+      
 
         <ion-content class="outer-content">
             <div class="user-pro-blg" menuClose *ngFor="let p of AccountPage">
@@ -60,9 +59,7 @@
                 <div class="name">en<br/> sophearak</div>
             </div>
             <ion-list class="side-lists-wrapper border-top">
-                <!-- <ion-list-header>
-                    Navigate
-                </ion-list-header> -->
+           
                 <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)" [color]="isActive(p)">
                     <ion-icon item-start [name]="p.icon" ></ion-icon>
                     {{p.title}}
@@ -70,9 +67,7 @@
             </ion-list>
 
             <ion-list class="side-lists-wrapper">
-                <!-- <ion-list-header>
-                    Account
-                </ion-list-header> -->
+          
                 <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)" [color]="isActive(p)">
                     <ion-icon item-start [name]="p.icon" ></ion-icon>
                     {{p.title}}
@@ -91,9 +86,8 @@
 
         </ion-content>
 
-    </ion-menu>
+    </ion-menu> -->
 
-    <!-- main navigation -->
     <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main name="app"></ion-nav>
 
 </ion-split-pane>

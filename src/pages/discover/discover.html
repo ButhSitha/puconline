@@ -1,33 +1,154 @@
 <ion-header>
-    <ion-navbar class="app-navbar">
-        <button ion-button menuToggle>
-          <ion-icon name="menu" class="menu-icon"></ion-icon>
-        </button>
 
-        <!-- <ion-segment [(ngModel)]="segment">
-            <ion-segment-button value="current" class="segment-btn">
-                Current
-            </ion-segment-button>
-            <ion-segment-button value="all" class="segment-btn">
-                All
-            </ion-segment-button>
-        </ion-segment> -->
-        <ion-avatar class="user-pro">
-            <img src="https://ionicframework.com/dist/preview-app/www/assets/img/avatar-ts-woody.png">
-        </ion-avatar>
-    </ion-navbar>
+    <page-header></page-header>
+    <!-- 
+    <ion-segment [(ngModel)]="segment">
+        <ion-segment-button value="current" class="segment-btn">
+            Current
+        </ion-segment-button>
+        <ion-segment-button value="all" class="segment-btn">
+            All
+        </ion-segment-button>
+    </ion-segment> -->
+    <!-- <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
+        <ion-segment-button value="first">
+            First
+        </ion-segment-button>
+        <ion-segment-button value="second">
+            Second
+        </ion-segment-button>
+
+    </ion-segment> -->
+    <!-- <ion-segment [(ngModel)]="segmentModel">
+        <ion-segment-button value="segmentOne" class="segment-btn">
+            Current lesson
+        </ion-segment-button>
+        <ion-segment-button value="segmentTwo" class="segment-btn">
+            All lesson
+        </ion-segment-button>
+
+    </ion-segment> -->
+    <ion-segment>
+        <ion-segment-button (click)="select(0)" class="segment-btn" [ngClass]="{activeSegment: selected===0}">
+            Current lesson
+
+        </ion-segment-button>
+        <ion-segment-button (click)="select(1)" class="segment-btn" [ngClass]="{activeSegment: selected===1}">
+            All lesson
+        </ion-segment-button>
+    </ion-segment>
+    <div id='indicator' class="indicatorSegment"></div>
 </ion-header>
 
 
 <ion-content padding class="app-content">
-    <!--     
-    <div class="app-sc-content" [ngSwitch]="segment">
-        <div class="app-sc-data" *ngSwitchCase="'current'"> -->
-    <div class="app-sc-content">
-        <div class="app-sc-data">
+
+    <ion-slides (pan)="panEvent($event)" #mySlider (ionDrag)="onSlideChanged($event)" class="cs-swiper-slide">
+        <ion-slide>
+            <div class="app-sc-content">
+                <div class="app-sc-data">
+                    <ion-card class="app-cart">
+                        <div class="bg-block">
+                            <img src="https://renet.oxswot.com/media/636287430104755175_lp.jpg">
+                        </div>
+                        <ion-card-content class="app-c-content">
+                            <h2 class="ls-title">Elementary A</h2>
+                            <p class="ls-sub-title">Introducing Oneself</p>
+                            <p class="ls-desc"> Elementary A Introducing Oneself In this lesson, you will learn about words used to introduce oneself, the use of simple present, and the use of the articles ‘a/an/the’.</p>
+
+                            <button class="ls-btn-continue">    
+                                            continue
+                                        </button>
+                        </ion-card-content>
+                    </ion-card>
+
+                </div>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="app-sc-content">
+                <div class="app-sc-data">
+
+                    <ion-card class="app-cart">
+                        <div class="bg-block">
+                            <img src="https://renet.oxswot.com/media/636287430308821101_lp.jpg">
+                        </div>
+                        <ion-card-content class="app-c-content">
+                            <h2 class="ls-title">Elementary A</h2>
+                            <p class="ls-sub-title">Appearance</p>
+                            <p class="ls-desc"> Elementary A Introducing Oneself In this lesson, you will learn about words used to introduce oneself, the use of simple present, and the use of the articles ‘a/an/the’.</p>
+                            <button class="ls-btn-continue">    
+                                                continue
+                                            </button>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card class="app-cart">
+                        <div class="bg-block">
+                            <img src="https://renet.oxswot.com/media/636287430104755175_lp.jpg">
+                        </div>
+                        <ion-card-content class="app-c-content">
+                            <h2 class="ls-title">Elementary A</h2>
+                            <p class="ls-sub-title">Introducing Oneself</p>
+                            <p class="ls-desc"> Elementary A Introducing Oneself In this lesson, you will learn about words used to introduce oneself, the use of simple present, and the use of the articles ‘a/an/the’.</p>
+
+                            <button class="ls-btn-continue">    
+                                                    continue
+                                                </button>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card class="app-cart">
+                        <div class="bg-block">
+                            <img src="https://renet.oxswot.com/media/636287430494762303_lp.jpg">
+                        </div>
+                        <ion-card-content class="app-c-content">
+                            <h2 class="ls-title">Elementary A</h2>
+                            <p class="ls-sub-title">Descriptions</p>
+                            <p class="ls-desc"> Elementary A Introducing Oneself In this lesson, you will learn about words used to introduce oneself, the use of simple present, and the use of the articles ‘a/an/the’.</p>
+                            <button class="ls-btn-continue">    
+                                                 continue
+                                            </button>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card class="app-cart">
+                        <div class="bg-block">
+                            <img src="https://renet.oxswot.com/media/636287430683063183_lp.jpg">
+                        </div>
+                        <ion-card-content class="app-c-content">
+                            <h2 class="ls-title">Elementary A</h2>
+                            <p class="ls-sub-title">Likes and Dislikes</p>
+                            <p class="ls-desc"> Elementary A Introducing Oneself In this lesson, you will learn about words used to introduce oneself, the use of simple present, and the use of the articles ‘a/an/the’.</p>
+                            <button class="ls-btn-continue">    
+                                                 continue
+                                            </button>
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+            </div>
+        </ion-slide>
+    </ion-slides>
+
+    <!-- <div class="app-sc-content" [ngSwitch]="segment">
+        <div class="app-sc-data" *ngSwitchCase="'current'">
             <ion-card class="app-cart">
                 <div class="bg-block">
-                    <!-- <img src="assets/img/advance-card-bttf.png"> -->
+                    <img src="https://renet.oxswot.com/media/636287430104755175_lp.jpg">
+                </div>
+                <ion-card-content class="app-c-content">
+                    <h2 class="ls-title">Elementary A</h2>
+                    <p class="ls-sub-title">Introducing Oneself</p>
+                    <p class="ls-desc"> Elementary A Introducing Oneself In this lesson, you will learn about words used to introduce oneself, the use of simple present, and the use of the articles ‘a/an/the’.</p>
+
+                    <button class="ls-btn-continue">    
+                        continue
+                    </button>
+                </ion-card-content>
+            </ion-card>
+
+        </div>
+
+        <div class="app-sc-data" *ngSwitchCase="'all'">
+            <ion-card class="app-cart">
+                <div class="bg-block">
                     <img src="https://renet.oxswot.com/media/636287430104755175_lp.jpg">
                 </div>
                 <ion-card-content class="app-c-content">
@@ -80,5 +201,86 @@
                 </ion-card-content>
             </ion-card>
         </div>
-    </div>
+
+
+    </div> -->
+    <!-- <div class="app-sc-content" (swipe)="swipeEvent($event)">
+        <div [ngSwitch]="segmentModel">
+            <div class="app-sc-data" *ngSwitchCase="'segmentOne'">
+                <ion-card class="app-cart">
+                    <div class="bg-block">
+                        <img src="https://renet.oxswot.com/media/636287430104755175_lp.jpg">
+                    </div>
+                    <ion-card-content class="app-c-content">
+                        <h2 class="ls-title">Elementary A</h2>
+                        <p class="ls-sub-title">Introducing Oneself</p>
+                        <p class="ls-desc"> Elementary A Introducing Oneself In this lesson, you will learn about words used to introduce oneself, the use of simple present, and the use of the articles ‘a/an/the’.</p>
+
+                        <button class="ls-btn-continue">    
+                            continue
+                        </button>
+                    </ion-card-content>
+                </ion-card>
+
+            </div>
+
+            <div class="app-sc-data" *ngSwitchCase="'segmentTwo'">
+                <ion-card class="app-cart">
+                    <div class="bg-block">
+                        <img src="https://renet.oxswot.com/media/636287430104755175_lp.jpg">
+                    </div>
+                    <ion-card-content class="app-c-content">
+                        <h2 class="ls-title">Elementary A</h2>
+                        <p class="ls-sub-title">Introducing Oneself</p>
+                        <p class="ls-desc"> Elementary A Introducing Oneself In this lesson, you will learn about words used to introduce oneself, the use of simple present, and the use of the articles ‘a/an/the’.</p>
+
+                        <button class="ls-btn-continue">    
+                            continue
+                        </button>
+                    </ion-card-content>
+                </ion-card>
+                <ion-card class="app-cart">
+                    <div class="bg-block">
+                        <img src="https://renet.oxswot.com/media/636287430308821101_lp.jpg">
+                    </div>
+                    <ion-card-content class="app-c-content">
+                        <h2 class="ls-title">Elementary A</h2>
+                        <p class="ls-sub-title">Appearance</p>
+                        <p class="ls-desc"> Elementary A Introducing Oneself In this lesson, you will learn about words used to introduce oneself, the use of simple present, and the use of the articles ‘a/an/the’.</p>
+                        <button class="ls-btn-continue">    
+                            continue
+                        </button>
+                    </ion-card-content>
+                </ion-card>
+                <ion-card class="app-cart">
+                    <div class="bg-block">
+                        <img src="https://renet.oxswot.com/media/636287430494762303_lp.jpg">
+                    </div>
+                    <ion-card-content class="app-c-content">
+                        <h2 class="ls-title">Elementary A</h2>
+                        <p class="ls-sub-title">Descriptions</p>
+                        <p class="ls-desc"> Elementary A Introducing Oneself In this lesson, you will learn about words used to introduce oneself, the use of simple present, and the use of the articles ‘a/an/the’.</p>
+                        <button class="ls-btn-continue">    
+                             continue
+                        </button>
+                    </ion-card-content>
+                </ion-card>
+                <ion-card class="app-cart">
+                    <div class="bg-block">
+                        <img src="https://renet.oxswot.com/media/636287430683063183_lp.jpg">
+                    </div>
+                    <ion-card-content class="app-c-content">
+                        <h2 class="ls-title">Elementary A</h2>
+                        <p class="ls-sub-title">Likes and Dislikes</p>
+                        <p class="ls-desc"> Elementary A Introducing Oneself In this lesson, you will learn about words used to introduce oneself, the use of simple present, and the use of the articles ‘a/an/the’.</p>
+                        <button class="ls-btn-continue">    
+                             continue
+                        </button>
+                    </ion-card-content>
+                </ion-card>
+            </div>
+
+
+        </div>
+    </div> -->
 </ion-content>
