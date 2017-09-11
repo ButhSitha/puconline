@@ -7,7 +7,7 @@
     <author email="spelonline@puc.edu.kh" href="http://pucspelonline.com/">
       oxswot teams
   </author>
-    <content original-src="index.html" src="http://192.168.56.1:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
