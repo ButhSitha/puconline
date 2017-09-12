@@ -1,7 +1,7 @@
+import { SidemenuPage } from './../pages/sidemenu/sidemenu';
 import { FeedPage } from './../pages/feed/feed';
 import { HeaderPage } from './../pages/header/header';
 import { AllPage } from './../pages/discover/all/all';
-import { CurrentPage } from './../pages/discover/current/current';
 import { TrainingPage } from './../pages/training/training';
 import { TicketPage } from './../pages/ticket/ticket';
 import { TestingPage } from './../pages/testing/testing';
@@ -38,10 +38,10 @@ import { RecentTrainingProvider } from '../providers/recent-training/recent-trai
     TestingPage,
     TicketPage,
     TrainingPage,
-    CurrentPage,
     AllPage,
     HeaderPage,
-    FeedPage
+    FeedPage,
+    SidemenuPage
   ],
   imports: [
     BrowserModule,
@@ -72,10 +72,11 @@ import { RecentTrainingProvider } from '../providers/recent-training/recent-trai
     TestingPage,
     TicketPage,
     TrainingPage,
-    CurrentPage,
     AllPage,
     HeaderPage,
-    FeedPage
+    FeedPage,
+    SidemenuPage
+    
 
   ],
   providers: [
