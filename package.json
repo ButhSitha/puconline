@@ -53,7 +53,7 @@
         "@ionic/cli-plugin-cordova": "1.6.2",
         "@ionic/cli-plugin-ionic-angular": "1.4.1",
         "@types/jquery": "^3.2.12",
-        "ionic": "3.9.2",
+        "ionic": "3.10.1",
         "typescript": "2.3.4"
     },
     "config": {},
