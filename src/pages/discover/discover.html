@@ -64,38 +64,196 @@
     </ion-slides> -->
     <div class="app-sc-content">
         <div class="app-sc-data">
+            <div class="app-header">
+                <h1 class="title">
+                    Recents
+                </h1>
+                <ion-searchbar></ion-searchbar>
+            </div>
+
             <ion-card class="app-cart-box">
-                <ion-card-header>
-                    <h1 class="title">
-                        Recents
-                    </h1>
-                    <ion-searchbar></ion-searchbar>
-                </ion-card-header>
+
                 <ion-card-content>
-                    <div class="app-c-content ">
+                    <div class="app-c-content" *ngFor="let item of recents">
                         <div class="block-info">
                             <div class="left">
-                                <img class="img" src="https://renet.oxswot.com/media/636284056957846382_lp.jpg" alt="">
-
-                                <h1 class="ls-title ls-up">Upper-intermediate</h1>
-                                <h2 class="ls-title ">Still Hungry</h2>
-                                <p class="desc">
-                                    In this lesson, you will learn about words related to eating out and food preparation, the use of regular comparatives, adjectives ending in ‘-ing’, the use of ‘too’ and ‘too much’, and the placement of ‘enough’;
-                                </p>
+                                <img class="img" src="{{item.UrlString}}/{{item.LessonImage}}" alt="{{item.LessonName}}">
+                                <h1 class="ls-title ls-up">{{item.CurriculumName}}</h1>
+                                <h2 class="ls-title ">{{item.LessonName}}</h2>
+                                <p class="desc">{{item.LessonDescription}}</p>
                             </div>
                             <div class="right">
-                                <button class="btn-continue">
-                                    CONTINUE
-                                </button>
+                                <button class="btn-continue">Continue</button>
                             </div>
                         </div>
                     </div>
                 </ion-card-content>
-
             </ion-card>
+
+            <ion-card class="app-cart-box">
+                <ion-card-header>
+                    <span class="rd">Remaining day </span>
+                    <h1 class="title">
+                        Sectember 10
+                    </h1>
+                </ion-card-header>
+                <ion-card-content>
+                    <div class="app-c-content rd-app-c-content">
+                        <div class="block-info">
+                            <div class="left">
+                                <div class="rm-icon">
+                                    <ion-icon ios="ios-clock" md="md-clock"></ion-icon>
+                                </div>
+                                <div class="rmd-block">
+                                    <h2 class="ls-title ">68</h2>
+                                    <h2 class="ls-title ">Days</h2>
+                                </div>
+
+                                <p class="desc">
+                                    <strong>Thurday, Sectember 10 2010</strong> Start class
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-card class="app-cart-box">
+
+                <ion-card-content>
+                    <div class="app-c-content app-c-content-st">
+                        <div class="block-info st-block-info">
+                            <div class="st-list-header">
+                                <span class="rd">Statistics</span>
+                                <h1 class="title">
+                                    STILL HUNGRY
+                                </h1>
+                            </div>
+                            <div class="st-list">
+                                <div class="st-list-col">
+
+                                    <div class="flex-st">
+                                        <div class="st-icon cm">
+                                            <ion-icon ios="ios-color-filter" md="md-color-filter"></ion-icon>
+                                        </div>
+
+                                        <div class="info">
+                                            <h3 class="inf-title">Completed</h3>
+                                            <span class="inf-status">Lesson in percentage</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-list-col">
+                                    <div class="st-pct">
+                                        0.35 %
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="st-list">
+                                <div class="st-list-col">
+
+                                    <div class="flex-st">
+                                        <div class="st-icon cr">
+                                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                        </div>
+
+                                        <div class="info">
+                                            <h3 class="inf-title">Correct</h3>
+                                            <span class="inf-status">Lesson in percentage</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-list-col">
+                                    <div class="st-pct">
+                                        0.04%
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+            <ion-card class="app-cart-box">
+
+                <ion-card-content>
+                    <div class="app-c-content app-c-content-st">
+                        <div class="block-info st-block-info">
+                            <div class="st-list-header">
+                                <span class="rd">Statistics</span>
+                                <h1 class="title">
+                                    UPPER-INTERMEDIATE
+                                </h1>
+                            </div>
+
+                            <div class="st-list">
+                                <div class="st-list-col">
+
+                                    <div class="flex-st">
+                                        <div class="st-icon cm">
+                                            <ion-icon ios="ios-color-filter" md="md-color-filter"></ion-icon>
+                                        </div>
+
+                                        <div class="info">
+                                            <h3 class="inf-title">Completed</h3>
+                                            <span class="inf-status">Level in percentage</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-list-col">
+                                    <div class="st-pct">
+                                        5.56 %
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="st-list">
+                                <div class="st-list-col">
+
+                                    <div class="flex-st">
+                                        <div class="st-icon cr">
+                                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+
+                                        </div>
+
+                                        <div class="info">
+                                            <h3 class="inf-title">Correct</h3>
+                                            <span class="inf-status">Level in percentage</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-list-col">
+                                    <div class="st-pct">
+                                        0.62 %
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="st-list">
+                                <div class="st-list-col">
+
+                                    <div class="flex-st">
+                                        <div class="st-icon cml">
+                                            <ion-icon ios="ios-done-all" md="md-done-all"></ion-icon>
+                                        </div>
+
+                                        <div class="info">
+                                            <h3 class="inf-title">Completed </h3>
+                                            <span class="inf-status">Level in lessons</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="st-list-col">
+                                    <div class="st-pct">
+                                        0/14
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+
+
         </div>
     </div>
-
-
-
 </ion-content>

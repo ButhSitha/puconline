@@ -1,6 +1,11 @@
 $icon-color:#08B1C5;
 $nav-bar:#00bfa5;
 $back-app:#fafafa;
+@mixin bg-gradient($c1, $c2, $angle: -135deg) {
+    background-image: linear-gradient( $angle, $c1 0%, $c2 100%);
+    background-position: 0 50%;
+}
+
 // Media of at most the maximum breakpoint width. No query for the largest breakpoint.
 // Makes the @content apply to the given breakpoint and narrower.
 @mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
@@ -715,12 +720,12 @@ textarea {
 }
 
 .menu-app-navbar {
-    padding-bottom: 12px;
+    padding: 16px;
     .toolbar-background {
         border: none !important;
     }
     .side-list-header-wrapper {
-        padding-left: 12px;
+        // padding-left: 12px;
     }
 }
 
@@ -733,7 +738,8 @@ page-header {
 }
 
 .outer-content {
-    background-color: #fff !important;
+    // background-color: #fff !important;
+    background: linear-gradient(45deg, #47AEA3, #08B1C5) !important;
     color: #333;
 }
 
@@ -771,7 +777,14 @@ page-header {
     }
     .completed {
         font-size: 10px;
-        margin-right: 16px;
+        // margin-right: 16px;
+    }
+}
+
+.side-outer-content {
+    .scroll-content {
+        padding: 24px 0;
+        top: 103px;
     }
 }
 
@@ -779,11 +792,14 @@ page-header {
     // margin: 0 !important;
     ion-list-header {
         border: none;
+        background: linear-gradient(45deg, #47AEA3, #08B1C5);
     }
     ion-label {
         display: flex;
         align-items: center;
-        justify-content: space-between
+        justify-content: space-between;
+        // line-height: 8px;
+        margin: 0;
     }
     .ls-item {
         display: flex;
@@ -801,7 +817,7 @@ page-header {
         font-weight: 500;
     }
     ion-icon {
-        color: #333;
+        color: #fff;
         font-size: 16px;
         margin-right: 8px;
         &.icon-ios-primary {
@@ -809,8 +825,8 @@ page-header {
         }
     }
     .item {
-        background-color: #fff;
-        color: #333;
+        background-color: transparent;
+        color: #fff;
         // text-transform: uppercase;
         font-size: 14px;
         &:first-child,
@@ -897,6 +913,25 @@ page-header {
         font-size: 28px;
         font-weight: bold;
     }
+    .rd {
+        color: #666;
+        font-size: 14px;
+    }
+    .st-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+    }
+    .pct {
+        font-size: 32px;
+        font-weight: bold;
+        color: #fff;
+    }
+    .cr-status {
+        font-size: 14px;
+        font-weight: 500;
+        color: #fff;
+    }
     .ls-title {
         font-size: 32px;
         font-weight: bold;
@@ -914,11 +949,12 @@ page-header {
     }
     .desc {
         color: rgba(255, 255, 255, 0.9);
-        height: 77px;
+        max-height: 77px;
         overflow: hidden;
         position: absolute;
         bottom: 0;
         padding-right: 32px;
+        line-height: normal;
     }
     .btn-continue {
         display: inline-flex;
@@ -932,7 +968,8 @@ page-header {
         color: #fff;
         font-size: 14px;
         font-weight: 600;
-        background-color: #111;
+        background-color: #333;
+        text-transform: uppercase;
     }
     .app-sc-data {
         height: 100%;
@@ -952,21 +989,140 @@ page-header {
             position: relative;
             width: 30%;
         }
+        &.st-block-info {
+            flex-direction: column;
+            padding: 0;
+            position: relative;
+            left: initial;
+            right: initial;
+            top: initial;
+            bottom: initial;
+        }
+        .st-list {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ebebeb;
+            padding: 12px 0;
+            align-items: center;
+            &:last-child {
+                border: none;
+            }
+        }
+        .st-pct {
+            background-color: #eee;
+            padding: 8px 16px;
+            border-radius: 32px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+            width: 86px;
+            text-align: center;
+        }
+        .flex-st {
+            display: flex;
+            align-items: center;
+        }
+        .rm-icon {
+            background: linear-gradient(45deg, #DAE7F0, #FADAE7);
+            border-radius: 16px;
+            height: 77px;
+            width: 77px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            margin-bottom: 24px;
+            ion-icon {
+                color: #fff;
+                font-size: 4.2em;
+            }
+        }
+        .st-icon {
+            background: linear-gradient(45deg, #47AEA3, #08B1C5);
+            border-radius: 10px;
+            height: 44px;
+            width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            &.cm {
+                background: linear-gradient(45deg, #08B1C5, #03F3D7);
+            }
+            &.cr {
+                background: linear-gradient(45deg, #47AEA3, #08B1C5);
+            }
+            &.cml {
+                @include bg-gradient(#179EFF, #22BEC6);
+            }
+            ion-icon {
+                color: #fff;
+                font-size: 2.2em;
+            }
+        }
+        .inf-title {
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+        .inf-status {
+            color: #666;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
     }
 }
 
 .app-cart-box {
-    background: $back-app;
+    background: transparent;
     box-shadow: none;
     overflow: inherit;
     .app-c-content {
         min-height: 70vh;
         border-radius: 12px;
         padding: 18px;
-        box-shadow: 0 5px 30px -6px rgba(0, 0, 0, .2);
+        box-shadow: 0 5px 30px -6px rgba(0, 0, 0, .3);
         position: relative;
-        background: linear-gradient(45deg, #9AD3DE, #93B8C0);
+        @include bg-gradient(#179EFF, #22BEC6);
+        // background: linear-gradient(45deg, #9AD3DE, #93B8C0);
+        &.app-c-content-st {
+            min-height: 300px;
+            background-image: none;
+            background-color: #fff;
+            // @include bg-gradient(#179EFF, #22BEC6);
+            .st-list-header {
+                padding: 24px 0;
+            }
+        }
+        &.rd-app-c-content {
+            //  @include bg-gradient(#247CC4, #336BAE);
+            background: linear-gradient(45deg, #F1467A, #FB949E);
+            min-height: 60vh;
+            .ls-title {
+                font-size: 64px;
+                font-weight: 900;
+                line-height: 50px;
+                color: #fff;
+            }
+            .block-info .left {
+                width: 100%;
+                position: relative;
+            }
+            .desc strong {
+                display: block;
+            }
+        }
     }
+}
+
+.app-header {
+    padding: 24px 28px 0 28px;
     .searchbar {
         background-color: transparent;
         border: none;

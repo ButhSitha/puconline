@@ -15,11 +15,11 @@ export class RecentTrainingProvider {
     
   }
   recent() {
-    if (this.recents) {
-      return Promise.resolve(this.recents);
-    }
+    // if (this.recents) {
+    //   return Promise.resolve(this.recents);
+    // }
     return new Promise(resolve => {
-      this.http.get('http://api.pucspelonline.com/recent_training/170010/17051801')
+      this.http.get('http://api.pucspelonline.com/recent_training/170010/17051805')
         .map(res => res.json())
         .subscribe(data => {
           this.recents = data.results;

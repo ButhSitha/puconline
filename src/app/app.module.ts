@@ -1,3 +1,4 @@
+import { KeyvocabularyPage } from './../pages/keyvocabulary/keyvocabulary';
 import { SidemenuPage } from './../pages/sidemenu/sidemenu';
 import { FeedPage } from './../pages/feed/feed';
 import { HeaderPage } from './../pages/header/header';
@@ -41,7 +42,8 @@ import { RecentTrainingProvider } from '../providers/recent-training/recent-trai
     AllPage,
     HeaderPage,
     FeedPage,
-    SidemenuPage
+    SidemenuPage,
+    KeyvocabularyPage
   ],
   imports: [
     BrowserModule,
@@ -75,9 +77,8 @@ import { RecentTrainingProvider } from '../providers/recent-training/recent-trai
     AllPage,
     HeaderPage,
     FeedPage,
-    SidemenuPage
-    
-
+    SidemenuPage,
+    KeyvocabularyPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
